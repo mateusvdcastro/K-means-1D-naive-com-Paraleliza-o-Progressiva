@@ -1,0 +1,1 @@
+# K-means-1D-naive-com-Paraleliza-o-Progressiva
