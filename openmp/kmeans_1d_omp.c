@@ -134,7 +134,7 @@ static void update_step_1d_omp(const double *X, double *C, const int *assign, in
             sum += sumt[t*(size_t)K + c];
             cnt += cntt[t*(size_t)K + c];
         }
-        if(cnt > 0) C[c] = sum / (double)cnt;
+        if(cnt > 0) C[c] = sum / (double)cnt; else C[c] = X[0];
     }
 
     free(sumt); free(cntt);
