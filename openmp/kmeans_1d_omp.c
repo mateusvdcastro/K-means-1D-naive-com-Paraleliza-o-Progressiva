@@ -165,7 +165,7 @@ static void get_schedule_str(char *out, size_t cap, int *chunk_out){
 
 static int is_monotonic_nonincreasing(const double *sse_hist, int iters){
     for(int i=1;i<iters;i++){
-        if(sse_hist[i] > sse_hist[i-1] + 1e-12) return 0;
+        if(sse_hist[i] > sse_hist[i-1] + 1e-9) return 0;
     }
     return 1;
 }

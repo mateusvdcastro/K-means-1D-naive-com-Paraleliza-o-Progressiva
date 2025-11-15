@@ -21,7 +21,7 @@ else
 fi
 
 # Thread grid (cap at NPROC, use powers of two up to 16 by default)
-THREADS="1 2 4 8 16"
+THREADS="1 2 4 8 12 16"
 TGRID=""
 for T in $THREADS; do
   if [ "$T" -le "$NPROC" ]; then TGRID="$TGRID $T"; fi
