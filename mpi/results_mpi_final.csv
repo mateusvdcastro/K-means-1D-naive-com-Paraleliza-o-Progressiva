@@ -1,0 +1,31 @@
+N,K,max_iter,eps,P,iterations,ms,sse,throughput
+Processo 0 de 1 iniciado no nó mateusvdcastro
+10000,4,50,0.0001,1,3,0.163974,9930.137001378,60985278.15
+Processo 0 de 2 iniciado no nó mateusvdcastro
+Processo 1 de 2 iniciado no nó mateusvdcastro
+10000,4,50,0.0001,2,3,0.157641,9930.137001378,63435273.82
+Processo 0 de 4 iniciado no nó mateusvdcastro
+Processo 1 de 4 iniciado no nó mateusvdcastro
+Processo 3 de 4 iniciado no nó mateusvdcastro
+10000,4,50,0.0001,4,3,0.142589,9930.137001378,70131637.08
+Processo 2 de 4 iniciado no nó mateusvdcastro
+Processo 0 de 1 iniciado no nó mateusvdcastro
+100000,8,50,0.0001,1,3,1.874348,99960.117168635,53351885.56
+Processo 0 de 2 iniciado no nó mateusvdcastro
+Processo 1 de 2 iniciado no nó mateusvdcastro
+100000,8,50,0.0001,2,3,1.101915,99960.117168635,90751101.49
+Processo 2 de 4 iniciado no nó mateusvdcastro
+Processo 3 de 4 iniciado no nó mateusvdcastro
+Processo 0 de 4 iniciado no nó mateusvdcastro
+Processo 1 de 4 iniciado no nó mateusvdcastro
+100000,8,50,0.0001,4,3,0.777929,99960.117168634,128546435.47
+Processo 0 de 1 iniciado no nó mateusvdcastro
+1000000,16,50,0.0001,1,3,41.109515,999182.690582206,24325268.74
+Processo 1 de 2 iniciado no nó mateusvdcastro
+Processo 0 de 2 iniciado no nó mateusvdcastro
+1000000,16,50,0.0001,2,3,19.897590,999182.690582215,50257342.72
+Processo 1 de 4 iniciado no nó mateusvdcastro
+Processo 3 de 4 iniciado no nó mateusvdcastro
+Processo 0 de 4 iniciado no nó mateusvdcastro
+Processo 2 de 4 iniciado no nó mateusvdcastro
+1000000,16,50,0.0001,4,3,10.680390,999182.690582204,93629539.75

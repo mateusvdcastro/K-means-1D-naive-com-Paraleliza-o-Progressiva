@@ -1,1 +1,0 @@
-blockSize,gridSize,N,K,max_iter,eps,iterations,ms_total,ms_kernel,ms_h2d,ms_d2h,sse,monotonic,points_per_sec

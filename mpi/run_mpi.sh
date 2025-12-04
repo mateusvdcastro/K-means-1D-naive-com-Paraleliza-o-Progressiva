@@ -12,28 +12,32 @@ fi
 
 echo "Compilação OK."
 
-# Definir caminhos dos dados (ajuste conforme necessário)
-# Exemplo usando os dados gerados na pasta ../gerardados/104
-DATA_DIR="../gerardados/104"
-DADOS="$DATA_DIR/dados.csv"
-CENTROIDES="$DATA_DIR/centroides_iniciais.csv"
+# Arquivo de resultados
+OUT="results_mpi_final.csv"
+echo "N,K,max_iter,eps,P,iterations,ms,sse,throughput" > "$OUT"
 
-if [ ! -f "$DADOS" ]; then
-    echo "Arquivo de dados não encontrado: $DADOS"
-    echo "Tentando usar dados da raiz..."
-    DADOS="../dados.csv"
-    CENTROIDES="../centroides_iniciais.csv"
-fi
+# Datasets para testar
+SIZES=("104" "105" "106")
+PROCS="1 2 4"
 
-if [ ! -f "$DADOS" ]; then
-    echo "Arquivo de dados não encontrado. Gere os dados primeiro."
-    exit 1
-fi
+for SZ in "${SIZES[@]}"; do
+    DATA_DIR="../gerardados/$SZ"
+    DADOS="$DATA_DIR/dados.csv"
+    CENTROIDES="$DATA_DIR/centroides_iniciais.csv"
 
-# Rodar com diferentes números de processos
-echo "Rodando K-means MPI..."
-echo "N,K,max_iter,eps,P,iterations,ms,sse"
+    if [ ! -f "$DADOS" ]; then
+        echo "Aviso: Dataset $SZ não encontrado em $DADOS. Pulando..."
+        continue
+    fi
 
-for P in 1 2 4; do
-    mpirun -np $P ./kmeans_1d_mpi "$DADOS" "$CENTROIDES" 50 1e-4 "assign_mpi_${P}.csv" "centroids_mpi_${P}.csv" --csv
+    echo "=== Processando Dataset 10^$SZ ==="
+    
+    for P in $PROCS; do
+        echo "  Running with P=$P..."
+        # Executa e anexa a saída CSV ao arquivo de resultados
+        # O programa C já imprime a linha CSV quando passamos --csv
+        mpirun -np $P ./kmeans_1d_mpi "$DADOS" "$CENTROIDES" 50 1e-4 "assign_mpi_${SZ}_${P}.csv" "centroids_mpi_${SZ}_${P}.csv" --csv >> "$OUT"
+    done
 done
+
+echo "Concluído. Resultados em $OUT"

@@ -248,10 +248,11 @@ int main(int argc, char **argv){
 
     if(rank == 0){
         if(csv){
-            /* CSV: N,K,max_iter,eps,P,iterations,ms,sse */
-            printf("%d,%d,%d,%.8g,%d,%d,%.6f,%.9f\n",
+            /* CSV: N,K,max_iter,eps,P,iterations,ms,sse,throughput */
+            double throughput = (ms > 0) ? (N * 1000.0 / ms) : 0.0;
+            printf("%d,%d,%d,%.8g,%d,%d,%.6f,%.9f,%.2f\n",
                    N, K, max_iter, eps, size,
-                   it, ms, sse);
+                   it, ms, sse, throughput);
         } else {
             printf("K-means 1D (MPI)\n");
             printf("N=%d K=%d max_iter=%d eps=%g\n", N, K, max_iter, eps);
